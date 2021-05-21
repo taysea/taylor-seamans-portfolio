@@ -3,8 +3,8 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `inbtwn.`,
-    description: `A publication exploring the idea that we’re constantly falling into and out of ourselves. Distributed online and in print.`,
+    title: `Taylor Seamans Portfolio`,
+    description: `A brief introduction to my work and how I view the world.`,
     author: `Taylor Seamans`,
   },
   plugins: [
@@ -27,15 +27,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/inbtwn-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-source-stripe`,
-      options: {
-        objects: ["Sku"],
-        secretKey: process.env.GATSBY_STRIPE_API_KEY,
-        downloadFiles: false,
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -56,22 +48,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: `cd48ka0wd1kd`,
-        accessToken: `8ZYOCTeHNc8CWVPg4nymk4J3gb9xD6p6Nmlc4Wup5ac`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-158393091-1",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

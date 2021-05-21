@@ -2,12 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 
 export default function HTML(props) {
-  // const ads = process.env.NODE_ENV === "production" && (
-  //   <script
-  //     async
-  //     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-  //   />
-  // )
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -17,7 +11,6 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        {/* {ads && ads} */}
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>

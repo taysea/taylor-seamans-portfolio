@@ -1,186 +1,44 @@
 import React from "react"
-import { graphql } from "gatsby"
-import { Box, Grid, ResponsiveContext, Text } from "grommet"
+import styled from "styled-components"
+import { Text } from "grommet"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-// import GoogleAds from "../components/GoogleAds"
-import { HeroFeature } from "../components/HeroFeature"
-import { Card } from "../components/Card/"
 import { PartialWidthSection } from "../layouts/PartialWidth"
 
-const IndexPage = ({ data: { main, hero, second } }) => {
+const StyledMark = styled.mark`
+  background-color: rgba(153, 235, 207, 0.4);
+`
+const IndexPage = () => {
   return (
     <Layout isNavPage isLanding>
       <SEO title="Home" />
-      <ResponsiveContext.Consumer>
-        {size => (
-          <>
-            <PartialWidthSection>
-              <Box gap="medium">
-                {hero.edges.map(({ node }) => (
-                  <HeroFeature
-                    node={{ ...node, slug: `blog/${node.slug}` }}
-                    key={node.id}
-                  />
-                ))}
-                <Grid
-                  columns={{ count: size !== "small" ? 3 : 1, size: "auto" }}
-                  gap={size !== "small" ? "large" : "medium"}
-                >
-                  {main.edges.map(({ node }) => (
-                    <Card
-                      node={{ ...node, slug: `blog/${node.slug}` }}
-                      key={node.id}
-                      type={size === "small" && "minimal"}
-                      height={size === "small" && "small"}
-                    />
-                  ))}
-                </Grid>
-              </Box>
-            </PartialWidthSection>
-            {/* <Box
-              height="small"
-              background="#EAEAEA"
-              pad={{ vertical: "small" }}
-              margin={{ bottom: "large" }}
-            >
-              <PartialWidthSection marginBottom="none">
-                <GoogleAds slot="1974438094" />
-              </PartialWidthSection>
-            </Box> */}
-            <PartialWidthSection>
-              <Box
-                direction="row"
-                pad={{ horizontal: "medium", vertical: "small" }}
-                justify="center"
-                // background="#EAEAEA"
-                margin={{ bottom: "medium" }}
-              >
-                <Text as="h2" margin="none">
-                  Popular articles
-                </Text>
-              </Box>
-              <Grid
-                columns={{ count: size !== "small" ? 2 : 1, size: "auto" }}
-                gap="medium"
-              >
-                {second.edges.map(({ node }) => (
-                  <Card
-                    node={{ ...node, slug: `/blog/${node.slug}` }}
-                    key={node.id}
-                    margin={size !== "small" ? { bottom: "medium" } : undefined}
-                    type="half-width"
-                  />
-                ))}
-              </Grid>
-            </PartialWidthSection>
-            {/* <Box
-              height="medium"
-              background="#EAEAEA"
-              pad={{ vertical: "small" }}
-            >
-              <PartialWidthSection marginBottom="none">
-                <GoogleAds slot="1974438094" />
-              </PartialWidthSection>
-            </Box> */}
-          </>
-        )}
-      </ResponsiveContext.Consumer>
+
+      <PartialWidthSection
+        width="large"
+        gap="medium"
+        justify="center"
+        alignSelf="center"
+        margin={{ horizontal: "auto", top: "large" }}
+      >
+        <Text size="5xl" role="img" a11yTitle="Waving Hand Emoji">
+          &#x1F44B;
+        </Text>
+
+        <Text size="xxlarge" weight={700} style={{ lineHeight: "55px" }}>
+          <StyledMark>
+            I am a UI Developer based in San Francisco, CA. I am passionate
+            about building performant, accessible, and inclusive user
+            interfaces.
+          </StyledMark>
+        </Text>
+        <Text size="large" color="#000">
+          With a B.S. in Computational Neuroscience, I love to think about how
+          people think then design things to fit. This portfolio is a brief
+          introduction into how I look at the world.
+        </Text>
+      </PartialWidthSection>
     </Layout>
   )
 }
 export default IndexPage
-export const query = graphql`
-  {
-    hero: allContentfulBlog(
-      filter: {
-        slug: {
-          eq: "janie-korn-on-her-wax-candles-introversion-and-a-devious-can-of-beans"
-        }
-      }
-    ) {
-      edges {
-        node {
-          id
-          slug
-          tags
-          title
-          titleImage {
-            description
-            file {
-              url
-            }
-            fluid(quality: 50) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          description
-          author {
-            fullName
-            slug
-          }
-          createdAt(fromNow: true)
-        }
-      }
-    }
-
-    main: allContentfulBlog(
-      limit: 6
-      filter: {
-        slug: {
-          ne: "janie-korn-on-her-wax-candles-introversion-and-a-devious-can-of-beans"
-        }
-      }
-    ) {
-      edges {
-        node {
-          id
-          slug
-          tags
-          title
-          titleImage {
-            description
-            file {
-              url
-            }
-            fluid(quality: 50) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          description
-          author {
-            fullName
-            slug
-          }
-          createdAt(fromNow: true)
-        }
-      }
-    }
-    second: allContentfulBlog(limit: 4, skip: 7) {
-      edges {
-        node {
-          id
-          slug
-          tags
-          title
-          titleImage {
-            description
-            file {
-              url
-            }
-            fluid(quality: 50) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          description
-          author {
-            fullName
-            slug
-          }
-          createdAt(fromNow: true)
-        }
-      }
-    }
-  }
-`

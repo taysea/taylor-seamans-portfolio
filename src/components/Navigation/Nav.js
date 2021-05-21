@@ -1,21 +1,10 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { Anchor, Box, Text } from "grommet"
-// import { Instagram } from "grommet-icons"
+import { Box, Text } from "grommet"
 import { NavItems } from "."
 
 const NavLink = styled(Link)`
-  font-weight: bold;
-  font-size: 0.8em;
-  text-decoration: none;
-  color: #111;
-  &:hover {
-    text-decoration: none;
-  }
-`
-
-const StyledAnchor = styled(Anchor)`
   font-weight: bold;
   font-size: 0.8em;
   text-decoration: none;
@@ -35,10 +24,7 @@ const NavButton = ({ item }) => {
       onMouseOut={() => setColor("text")}
       onBlur={() => {}}
     >
-      <Box
-        pad={{ horizontal: "small", vertical: "xsmall" }}
-        // background="#EFEFEF"
-      >
+      <Box pad={{ horizontal: "small", vertical: "xsmall" }}>
         <Text size="small" weight="bold" color={color}>
           {item}
         </Text>
@@ -66,21 +52,7 @@ export const Nav = () => {
               </NavLink>
             )
         )}
-        <StyledAnchor
-          label="Magazine"
-          href="https://issuu.com/inbtwnmag"
-          target="_blank"
-          rel="noopener"
-        />
       </Box>
-      {/* <Button
-      a11yTitle="Instagram"
-      icon={<Instagram size="1.25em" color="dark-1" />}
-      href="https://www.instagram.com/inbtwnmag/"
-      target="_blank"
-      rel="noopener noreferrer"
-    /> */}
-      {/* <Button a11yTitle="Search" icon={<Search size="1.25em" color="dark-1" />} /> */}
     </Box>
   )
 }

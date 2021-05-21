@@ -30,7 +30,6 @@ const Layout = ({ children, isNavPage, isLanding }) => {
     <Grommet theme={customTheme} full style={{ height: "auto", width: "100%" }}>
       <GlobalFonts />
       <Box height={{ min: "100vh" }}>
-        {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <NavBar
           border={!isNavPage && { side: "bottom", color: "light-3" }}
           isLanding={isLanding}
