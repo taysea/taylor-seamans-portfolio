@@ -1,0 +1,42 @@
+{
+  "name": "taylor-seamans-portfolio",
+  "private": true,
+  "description": "a portfolio site for my work.",
+  "version": "0.1.0",
+  "author": "Taylor Seamans",
+  "dependencies": {
+    "babel-plugin-styled-components": "^2.0.7",
+    "gatsby": "^5.0.0",
+    "gatsby-plugin-image": "^3.0.0",
+    "gatsby-plugin-layout": "^4.0.0",
+    "gatsby-plugin-manifest": "^5.0.0",
+    "gatsby-plugin-mdx": "^5.0.0",
+    "gatsby-plugin-sharp": "^5.0.0",
+    "gatsby-plugin-styled-components": "^6.0.0",
+    "gatsby-source-contentful": "^8.0.0",
+    "gatsby-source-filesystem": "^5.0.0",
+    "gatsby-transformer-sharp": "^5.0.0",
+    "grommet": "^2.27.0",
+    "grommet-icons": "^4.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  },
+  "keywords": [
+    "gatsby",
+    "grommet",
+    "graphql",
+    "contentful"
+  ],
+  "license": "0BSD",
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  }
+}
