@@ -1,15 +1,18 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Box, Heading, Grid } from "grommet";
+import React from "react"
+import { graphql, Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Box, Heading, Grid, PageHeader } from "grommet"
 
 const Editorial = ({ data }) => {
   return (
     <>
-      <Heading margin={{ top: "large" }}>Editorial</Heading>
+      <PageHeader
+        title="Editorial"
+        subtitle={`"inbtwn." is an art magazine I create in my free time because I love editorial design.`}
+      />
       <Grid columns="medium" gap="medium" pad={{ top: "medium" }}>
-        {data.allContentfulEditorial.edges.map((datum) => {
-          const image = getImage(datum.node.coverImage);
+        {data.allContentfulEditorial.edges.map(datum => {
+          const image = getImage(datum.node.coverImage)
           return (
             <Link to={datum.node.slug} style={{ textDecoration: "none" }}>
               <Box gap="small">
@@ -21,16 +24,16 @@ const Editorial = ({ data }) => {
                 </Heading>
               </Box>
             </Link>
-          );
+          )
         })}
       </Grid>
     </>
-  );
-};
+  )
+}
 
-export default Editorial;
+export default Editorial
 
-export const Head = () => <title>Editorial | Taylor Seamans</title>;
+export const Head = () => <title>Editorial | Taylor Seamans</title>
 
 export const query = graphql`
   {
@@ -51,4 +54,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`
