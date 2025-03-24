@@ -5,6 +5,7 @@ import { Header as GrommetHeader, Nav, Text } from "grommet"
 
 const links = [
   { label: "UI/UX", href: "/ux" },
+  { label: "Materials", href: "/materials" },
   { label: "Editorial", href: "/editorial" },
   { label: "Art", href: "/art" },
 ]

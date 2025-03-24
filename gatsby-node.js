@@ -7,6 +7,9 @@ exports.createPages = ({ graphql, actions }) => {
   const editorialDetailTemplate = path.resolve(
     `src/templates/editorial-detail.js`
   )
+  const materialDetailTemplate = path.resolve(
+    `src/templates/material-detail.js`
+  )
 
   return graphql(`
     {
@@ -18,6 +21,13 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
       editorialQuery: allContentfulEditorial {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+      materialQuery: allContentfulMaterial {
         edges {
           node {
             slug
@@ -47,6 +57,16 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           slug: edge.node.slug,
         },
+      })
+
+      result.data.materialQuery.edges.forEach(edge => {
+        createPage({
+          path: `/materials/${edge.node.slug}`,
+          component: materialDetailTemplate,
+          context: {
+            slug: edge.node.slug,
+          },
+        })
       })
     })
   })
